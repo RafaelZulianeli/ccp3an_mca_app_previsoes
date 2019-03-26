@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Previsões</title>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="panel panel-default" style="margin: 10px">
+        <div class="panel-heading">
+            <h1 class="panel-title">Previsões para São Paulo</h1>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Dia da Semana</th>
+                        <th>Mínima</th>
+                        <th>Máxima</th>
+                        <th>Humidade Relativa do Ar</th>
+                        <th>Resumo do Dia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="previsao : ${previsoes}">
+                        <td th:text="${previsao.diaDaSemana}"></td>
+                        <td th:text="${previsao.minima}"></td>
+                        <td th:text="${previsao.maxima}"></td>
+                        <td th:text="${previsao.humidadeRelativaAr}"></td>
+                        <td th:text="${previsao.descricao}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
